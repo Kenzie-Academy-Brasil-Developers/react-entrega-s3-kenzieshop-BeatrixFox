@@ -7,8 +7,9 @@ export const ListProducts = () => {
 
   return (
     <Container>
-      {products.map((product) => (
-        <Product key={product.id} product={product} />
+      <h1>Produtos disponiveis</h1>
+      {products.map((product, index) => (
+        <Product key={index} product={product} />
       ))}
     </Container>
   );

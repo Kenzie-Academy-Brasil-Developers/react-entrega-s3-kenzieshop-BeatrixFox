@@ -1,12 +1,13 @@
 import { toast } from "react-toastify";
-import { addToCart, removeFromCart } from "./action";
+import { addToCart, removeFromCart } from "./actions";
 
 export const addToCartThunk = (product) => (dispatch) => {
   const list = JSON.parse(localStorage.getItem("@Kenzieshop:cart")) || [];
   if (list.find((item) => product.id === item.id) !== undefined) {
+    console.log("já tem");
     return toast.error("Item já está no carrinho");
   }
-
+  console.log("add com sucesso");
   toast.success("Item adicionado ao carrinho");
   const newList = [...list, product];
   localStorage.setItem("@Kenzieshop:cart", JSON.stringify(newList));
