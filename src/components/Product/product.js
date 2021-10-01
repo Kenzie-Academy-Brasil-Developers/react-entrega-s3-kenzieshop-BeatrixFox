@@ -10,9 +10,15 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    margin: theme.spacing(0),
     color: "white",
+    fontSize: "15px",
+    fontWeight: "bold",
     background: "green",
+    width: "100%",
+    [theme.breakpoints.up(425)]: {
+      width: "307px",
+    },
+    [theme.breakpoints.up(768)]: { width: "270px" },
   },
 }));
 
@@ -25,13 +31,13 @@ const Product = ({ product, isRemovable = false }) => {
   return (
     <Container>
       <h3>{name}</h3>
-      <img src={img} alt={name} width="150px" height="150px" />
-      <h3>{price}</h3>
+      <img src={img} alt={name} />
+      <h4>{price}</h4>
       {isRemovable ? (
         <Button
           variant="contained"
-          color="primary"
-          size="large"
+          color="secondary"
+          size="medium"
           className={classes.button}
           onClick={() => dispatch(removeFromCartThunk(id))}
         >
@@ -41,7 +47,7 @@ const Product = ({ product, isRemovable = false }) => {
         <Button
           variant="contained"
           color="primary"
-          size="large"
+          size="medium"
           className={classes.button}
           onClick={() => dispatch(addToCartThunk(product))}
         >
