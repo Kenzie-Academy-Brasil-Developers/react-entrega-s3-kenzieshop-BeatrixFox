@@ -8,9 +8,11 @@ export const ListProducts = () => {
   return (
     <Container>
       <h1>Produtos disponiveis</h1>
-      {products.map((product, index) => (
-        <Product key={index} product={product} />
-      ))}
+      <section>
+        {products.map((product, index) => (
+          <Product key={index} product={product} />
+        ))}
+      </section>
     </Container>
   );
 };

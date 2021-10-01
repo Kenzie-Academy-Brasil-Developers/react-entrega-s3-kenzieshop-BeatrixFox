@@ -30,9 +30,11 @@ const CartList = () => {
     <Container>
       <h1>Meu carrinho de compras</h1>
       <p>Valor da compra : {totalBuy}</p>
-      {cart.map((product, index) => (
-        <Product key={index} product={product} isRemovable />
-      ))}
+      <section>
+        {cart.map((product, index) => (
+          <Product key={index} product={product} isRemovable />
+        ))}
+      </section>
     </Container>
   );
 };
