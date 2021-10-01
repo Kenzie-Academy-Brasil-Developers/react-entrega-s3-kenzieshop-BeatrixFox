@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Product from "../Product/product";
+import { Container } from "./style";
 
 const CartList = () => {
   const cart = useSelector((store) => store.cart);
@@ -26,13 +27,13 @@ const CartList = () => {
   }, [count]);
 
   return (
-    <div>
+    <Container>
       <h1>Meu carrinho de compras</h1>
       <p>Valor da compra : {totalBuy}</p>
       {cart.map((product, index) => (
         <Product key={index} product={product} isRemovable />
       ))}
-    </div>
+    </Container>
   );
 };
 

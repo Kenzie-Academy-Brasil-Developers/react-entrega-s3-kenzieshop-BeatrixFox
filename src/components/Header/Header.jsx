@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
+import { Container } from "./style";
+import { useSelector } from "react-redux";
 
 export const Header = () => {
+  const cartQnt = useSelector((store) => store.cart).length;
   return (
-    <>
-      <Link to="/">
-        <h4>KenzieShop - Produtos Animes</h4>
-      </Link>
+    <Container>
+      <Link to="/">KenzieShop - Produtos Animes</Link>
       <Link to="/buycart">
-        <h5>Carrinho de compras</h5>
+        <p>Carrinho de compras</p>
+        <span>{cartQnt}</span>
       </Link>
-    </>
+    </Container>
   );
 };
